@@ -43,7 +43,7 @@ $nama_lengkap_admin = $_SESSION['nama_lengkap'] ?? $_SESSION['username'];
         min-height: 60px;
         display: flex;
         align-items: center;
-        padding: 0.75rem 1.25rem; /* Ensure consistent padding */
+        padding: 0.75rem 1.25rem;
     }
 
     .empty-state {
@@ -55,53 +55,48 @@ $nama_lengkap_admin = $_SESSION['nama_lengkap'] ?? $_SESSION['username'];
     .empty-state img {
         max-width: 200px;
         margin-bottom: 20px;
-        height: auto; /* Ensure image scales proportionally */
+        height: auto;
     }
 
-    /* CSS for Uniform Button Size and Responsiveness */
     .task-actions {
         display: flex;
-        flex-wrap: wrap; /* Allows buttons to wrap to the next line */
-        gap: 8px; /* Consistent spacing between buttons */
+        flex-wrap: wrap;
+        gap: 8px;
         align-items: stretch;
-        justify-content: center; /* Center buttons when they wrap */
+        justify-content: center;
     }
 
     .task-actions .btn {
-        flex-grow: 1; /* Allows buttons to grow and fill available space */
-        min-width: 100px; /* Minimum width for buttons */
-        /* max-width: 180px;  Consider if you want to limit max width, or let flex-grow handle it */
+        flex-grow: 1;
+        min-width: 100px;
         text-align: center;
-        height: 40px; /* Uniform height for buttons */
+        height: 40px; 
         display: flex;
         justify-content: center;
         align-items: center;
-        font-size: 0.9rem; /* Adjust font size for better fit on small screens */
+        font-size: 0.9rem;
     }
 
-    /* Media query for very small devices (e.g., phones in portrait) */
     @media (max-width: 575.98px) {
         .task-actions {
-            flex-direction: column; /* Stack buttons vertically */
-            gap: 10px; /* More space when stacked */
+            flex-direction: column;
+            gap: 10px;
         }
         .task-actions .btn {
-            width: 100%; /* Make buttons take full width when stacked */
-            margin: 0; /* Remove any lingering margins */
+            width: 100%;
+            margin: 0;
         }
         .card-header .card-title {
-            font-size: 1.1rem; /* Slightly smaller title for small screens */
+            font-size: 1.1rem; 
         }
     }
 
-    /* Media query for small to medium devices */
     @media (min-width: 576px) and (max-width: 767.98px) {
         .task-actions .btn {
-            font-size: 0.85rem; /* Smaller font for slightly more compact buttons */
+            font-size: 0.85rem;
         }
     }
 
-    /* Adjust container padding for very small screens */
     @media (max-width: 575.98px) {
         .container.mt-4 {
             padding-left: 15px;
