@@ -1,12 +1,11 @@
 <?php
 session_start();
-include 'config/koneksi.php'; // Sesuaikan path jika berbeda
+include 'config/koneksi.php';
 
 $login_message = "";
 $success_message = "";
 $username_val = "";
 
-// Cek apakah ada pesan sukses dari registrasi
 if (isset($_SESSION['admin_registration_success'])) {
     $success_message = $_SESSION['admin_registration_success'];
     unset($_SESSION['admin_registration_success']);
@@ -28,7 +27,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         if (mysqli_num_rows($result) === 1) {
             $user = mysqli_fetch_assoc($result);
 
-            // Verifikasi password dan cek role
             if (password_verify($password, $user['password'])) {
                 if ($user['role'] === 'admin') {
                     $_SESSION['id_akun'] = $user['id_akun'];
@@ -36,7 +34,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     $_SESSION['role'] = $user['role'];
                     $_SESSION['nama_lengkap'] = $user['nama_lengkap'] ?? $user['username'];
 
-                    // Arahkan ke dashboard admin
                     header("Location: admin/admin_dashboard.php");
                     exit();
                 } else {
@@ -65,7 +62,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <style>
     body {
         background: linear-gradient(to right, #007bff, #28a745);
-        /* Blue to Green gradient for Admin */
         min-height: 100vh;
         display: flex;
         justify-content: center;
@@ -83,7 +79,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     .card-right {
         background: linear-gradient(45deg, #0056b3, #007bff);
-        /* Darker blue gradient */
         color: white;
         padding: 3rem;
         display: flex;
@@ -93,26 +88,25 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         text-align: center;
     }
 
-    /* Adjust image size for smaller screens */
     .card-right img {
-        max-width: 50%; /* Default max-width for img */
-        height: auto; /* Maintain aspect ratio */
+        max-width: 50%;
+        height: auto;
     }
 
-    @media (max-width: 767.98px) { /* For devices smaller than md (medium) */
+    @media (max-width: 767.98px) { 
         .card-right {
-            padding: 2rem; /* Slightly less padding on small screens */
+            padding: 2rem;
         }
         .card-right img {
-            max-width: 60%; /* Make image slightly larger on small screens */
-            margin-bottom: 1.5rem !important; /* Adjust margin for spacing */
+            max-width: 60%; 
+            margin-bottom: 1.5rem !important;
         }
         .card-right h3 {
-            font-size: 1.1rem; /* Smaller heading on small screens */
+            font-size: 1.1rem;
             margin-bottom: 1.5rem !important;
         }
         .card-right p.lead {
-            font-size: 0.9rem; /* Smaller lead text */
+            font-size: 0.9rem; 
         }
     }
 
