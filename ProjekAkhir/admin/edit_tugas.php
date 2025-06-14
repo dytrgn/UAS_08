@@ -47,7 +47,7 @@ if (isset($_POST['submit_edit_tugas'])) {
             }
 
             if (empty($pesan_error)) {
-                $nama_file_tugas_admin_baru = uniqid() . '_' . preg_replace("/[^a-zA-Z0-9_\-.]/", "", $original_file_name); // Sanitize filename
+                $nama_file_tugas_admin_baru = uniqid() . '_' . preg_replace("/[^a-zA-Z0-9_\-.]/", "", $original_file_name);
                 $target_file = $target_dir . $nama_file_tugas_admin_baru;
 
                 if (!empty($nama_file_tugas_admin_lama) && file_exists($target_dir . $nama_file_tugas_admin_lama)) {
