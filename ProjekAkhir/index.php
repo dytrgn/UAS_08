@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'config/koneksi.php'; // Sesuaikan path jika berbeda
+include 'config/koneksi.php';
 
 $login_message = "";
 $success_message = "";
